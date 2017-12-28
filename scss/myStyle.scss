@@ -20,8 +20,8 @@ body {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: auto 1fr;
-    grid-area: "header" "game";
+    grid-auto-rows: auto 1fr auto;
+    grid-area: "header" "game" "footer";
     font-family: 'Coiny', cursive;
     font-family: 'Goblin One', cursive;
 }
@@ -213,6 +213,56 @@ header {
                     background: #e35041;
                     -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                     box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
+                }
+            }
+        }
+    }
+}
+
+footer {
+    grid-area: "footer";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 15px;
+    h1 {
+        color: $txt-color;
+        font-size: 16px;
+        text-align: center;
+        a {
+            color: #E2223A;
+            text-decoration: none;
+            transition: color 1s;
+            &::before,
+            &::after {
+                display: inline-block;
+                opacity: 0;
+                -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+                -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+                transition: transform 0.2s, opacity 0.2s;
+            }
+            &::before {
+                margin-right: 2px;
+                content: '[';
+                -webkit-transform: translateX(5px);
+                -moz-transform: translateX(5px);
+                transform: translateX(5px);
+            }
+            &::after {
+                margin-left: 2px;
+                content: ']';
+                -webkit-transform: translateX(-5px);
+                -moz-transform: translateX(-5px);
+                transform: translateX(-5px);
+            }
+            &:hover,
+            &:focus {
+                &::before,
+                &::after {
+                    opacity: 1;
+                    -webkit-transform: translateX(0px);
+                    -moz-transform: translateX(0px);
+                    transform: translateX(0px);
                 }
             }
         }
