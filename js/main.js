@@ -218,8 +218,10 @@ function makeComputerMove() {
     /*Transform the move[row, column] to a number 1-9 to change the correct .cell in the html */
     let moveIndex = move[0] * 3 + move[1] + 1;
     console.log(move);
+
     $('.board .cell:nth-child(' + moveIndex + ")").html("<span>" + opponentAvatar + "</span>");
     $('.board .cell:nth-child(' + moveIndex + ")").removeClass('empty');
+
     /*Mark board hopes an index 0-8 and moveIndex is 
     calculated thincking in the nth-child() which starts at 1*/
     markBoard(board, moveIndex - 1, opponentAvatar);

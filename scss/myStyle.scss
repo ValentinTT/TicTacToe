@@ -5,7 +5,11 @@ $message-font-size: 30px;
 *,
 *::before,
 *::after {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -37,13 +41,23 @@ header {
     grid-area: "game";
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     .message {
         width: 100%;
         text-align: center;
+        -ms-flex-item-align: start;
         align-self: flex-start;
         color: $txt-color;
         margin: 0;
@@ -56,20 +70,31 @@ header {
         height: 380px;
         padding: 20px;
         border-radius: 5%;
+        -webkit-box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.507);
         box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.507);
+        -webkit-transition: -webkit-box-shadow .4s;
+        transition: -webkit-box-shadow .4s;
+        -o-transition: box-shadow .4s;
         transition: box-shadow .4s;
+        transition: box-shadow .4s, -webkit-box-shadow .4s;
         display: grid;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         grid-template-columns: repeat(3, 1fr);
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 20px;
         &:hover {
+            -webkit-box-shadow: 0 5px 40px 5px rgba(0, 0, 0, 0.507);
             box-shadow: 0 5px 40px 5px rgba(0, 0, 0, 0.507);
         }
         .options {
             width: 100px;
             height: 100px;
+            -webkit-perspective: 1500px;
             perspective: 1500px;
             font-size: 40px;
             color: #fff;
@@ -80,8 +105,13 @@ header {
                 color: #fff;
             }
             .options-span {
+                -webkit-transition: -webkit-box-shadow .4s;
+                transition: -webkit-box-shadow .4s;
+                -o-transition: box-shadow .4s;
                 transition: box-shadow .4s;
+                transition: box-shadow .4s, -webkit-box-shadow .4s;
                 &:hover {
+                    -webkit-box-shadow: 0px 3px 40px 5px rgba(0, 0, 0, 0.507);
                     box-shadow: 0px 3px 40px 5px rgba(0, 0, 0, 0.507);
                 }
             }
@@ -90,16 +120,23 @@ header {
                 background: #e35041;
                 width: 100%;
                 height: 100%;
+                -webkit-box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.507);
                 box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.507);
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
                 justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
                 align-items: center;
             }
         }
         .cell {
-            //background: rgb(156, 226, 16);
             width: 100px;
             height: 100px;
+            -webkit-perspective: 1500px;
             perspective: 1500px;
             font-size: 40px;
             color: #fff;
@@ -114,12 +151,26 @@ header {
                 background: #e35041;
                 width: 100%;
                 height: 100%;
+                -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                 box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
                 justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
                 align-items: center;
+                -webkit-transition: background .2s, -webkit-transform .2s, -webkit-box-shadow .2s;
+                transition: background .2s, -webkit-transform .2s, -webkit-box-shadow .2s;
+                -o-transition: transform .2s, background .2s, box-shadow .2s;
                 transition: transform .2s, background .2s, box-shadow .2s;
+                transition: transform .2s, background .2s, box-shadow .2s, -webkit-transform .2s, -webkit-box-shadow .2s;
+                -webkit-transform-style: preserve-3d;
                 transform-style: preserve-3d;
+                -webkit-transform-origin: 50% 50% -50px;
+                -ms-transform-origin: 50% 50% -50px;
                 transform-origin: 50% 50% -50px;
                 &::before {
                     @extend %cellSide;
@@ -139,10 +190,13 @@ header {
             &:hover span,
             &:focus span {
                 background: #b53a2d;
+                -webkit-transform: rotateY(-90deg);
                 transform: rotateY(-90deg);
+                -webkit-box-shadow: none;
                 box-shadow: none;
                 &::before {
                     background: #e35041;
+                    -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                     box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                 }
             }
@@ -151,13 +205,47 @@ header {
             &:hover span,
             &:focus span {
                 background: #b53a2d;
+                -webkit-transform: rotateY(90deg);
                 transform: rotateY(90deg);
+                -webkit-box-shadow: none;
                 box-shadow: none;
                 &::after {
                     background: #e35041;
+                    -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                     box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
                 }
             }
+        }
+        .aux {
+            background: red;
+        }
+    }
+}
+
+@keyframes turn-0-AI {
+    100% {
+        -webkit-transform: rotateY(90deg);
+        transform: rotateY(90deg);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        &::before {
+            background: #e35041;
+            -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
+            box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
+        }
+    }
+}
+
+@keyframes turn-X-AI {
+    100% {
+        -webkit-transform: rotateY(-90deg);
+        transform: rotateY(-90deg);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        &::before {
+            background: #e35041;
+            -webkit-box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
+            box-shadow: 0px 3px 20px 5px rgba(0, 0, 0, 0.507);
         }
     }
 }
@@ -168,12 +256,25 @@ header {
     width: 100%;
     height: 100%;
     background: #b53a2d;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-decoration: none;
+    -webkit-transition: background .2s, -webkit-box-shadow .2s;
+    transition: background .2s, -webkit-box-shadow .2s;
+    -o-transition: background .2s, box-shadow .2s;
     transition: background .2s, box-shadow .2s;
+    transition: background .2s, box-shadow .2s, -webkit-box-shadow .2s;
+    -webkit-transform: rotateY(90deg);
     transform: rotateY(90deg);
+    -webkit-transform-origin: 0 50%;
+    -ms-transform-origin: 0 50%;
     transform-origin: 0 50%;
     pointer-events: none;
 }
